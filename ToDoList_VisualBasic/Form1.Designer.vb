@@ -25,14 +25,18 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtTitle = New System.Windows.Forms.TextBox()
+        Me.txtDescription = New System.Windows.Forms.TextBox()
         Me.DataGridTask = New System.Windows.Forms.DataGridView()
         Me.btnAddTask = New System.Windows.Forms.Button()
         Me.btnEditTask = New System.Windows.Forms.Button()
         Me.btnDeleteTask = New System.Windows.Forms.Button()
         Me.btnSaveTask = New System.Windows.Forms.Button()
+        Me.radioDone = New System.Windows.Forms.RadioButton()
+        Me.radioNotDone = New System.Windows.Forms.RadioButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.DataGridTask, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -65,19 +69,19 @@ Partial Class Form1
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Description"
         '
-        'TextBox1
+        'txtTitle
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 78)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(542, 20)
-        Me.TextBox1.TabIndex = 3
+        Me.txtTitle.Location = New System.Drawing.Point(12, 78)
+        Me.txtTitle.Name = "txtTitle"
+        Me.txtTitle.Size = New System.Drawing.Size(542, 20)
+        Me.txtTitle.TabIndex = 3
         '
-        'TextBox2
+        'txtDescription
         '
-        Me.TextBox2.Location = New System.Drawing.Point(12, 132)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(542, 20)
-        Me.TextBox2.TabIndex = 4
+        Me.txtDescription.Location = New System.Drawing.Point(12, 132)
+        Me.txtDescription.Name = "txtDescription"
+        Me.txtDescription.Size = New System.Drawing.Size(542, 20)
+        Me.txtDescription.TabIndex = 4
         '
         'DataGridTask
         '
@@ -124,25 +128,60 @@ Partial Class Form1
         Me.btnSaveTask.Text = "Save"
         Me.btnSaveTask.UseVisualStyleBackColor = True
         '
+        'radioDone
+        '
+        Me.radioDone.AutoSize = True
+        Me.radioDone.Location = New System.Drawing.Point(24, 32)
+        Me.radioDone.Name = "radioDone"
+        Me.radioDone.Size = New System.Drawing.Size(51, 17)
+        Me.radioDone.TabIndex = 10
+        Me.radioDone.Text = "Done"
+        Me.radioDone.UseVisualStyleBackColor = True
+        '
+        'radioNotDone
+        '
+        Me.radioNotDone.AutoSize = True
+        Me.radioNotDone.Checked = True
+        Me.radioNotDone.Location = New System.Drawing.Point(24, 55)
+        Me.radioNotDone.Name = "radioNotDone"
+        Me.radioNotDone.Size = New System.Drawing.Size(71, 17)
+        Me.radioNotDone.TabIndex = 11
+        Me.radioNotDone.TabStop = True
+        Me.radioNotDone.Text = "Not Done"
+        Me.radioNotDone.UseVisualStyleBackColor = True
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.radioDone)
+        Me.GroupBox1.Controls.Add(Me.radioNotDone)
+        Me.GroupBox1.Location = New System.Drawing.Point(611, 66)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(130, 86)
+        Me.GroupBox1.TabIndex = 12
+        Me.GroupBox1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.ClientSize = New System.Drawing.Size(800, 524)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSaveTask)
         Me.Controls.Add(Me.btnDeleteTask)
         Me.Controls.Add(Me.btnEditTask)
         Me.Controls.Add(Me.btnAddTask)
         Me.Controls.Add(Me.DataGridTask)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtDescription)
+        Me.Controls.Add(Me.txtTitle)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Form1"
         Me.Text = "Form1"
         CType(Me.DataGridTask, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -151,11 +190,14 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents txtTitle As TextBox
+    Friend WithEvents txtDescription As TextBox
     Friend WithEvents DataGridTask As DataGridView
     Friend WithEvents btnAddTask As Button
     Friend WithEvents btnEditTask As Button
     Friend WithEvents btnDeleteTask As Button
     Friend WithEvents btnSaveTask As Button
+    Friend WithEvents radioDone As RadioButton
+    Friend WithEvents radioNotDone As RadioButton
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
