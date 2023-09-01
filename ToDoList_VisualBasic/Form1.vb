@@ -93,6 +93,32 @@ Public Class Form1
     End Sub
 
     Private Sub btnDeleteTask_Click(sender As Object, e As EventArgs) Handles btnDeleteTask.Click
+        Dim taskID As Integer
+
+        ' Obtener el ID de la fila seleccionada en el DataGridView
+        If DataGridTask.SelectedRows.Count > 0 Then
+            taskID = Convert.ToInt32(DataGridTask.SelectedRows(0).Cells("taskId").Value)
+        Else
+            MessageBox.Show("Please select a task to delete.")
+            Return
+        End If
+
+        Try
+            connection.Open()
+
+            Dim query As String = "DELETE FROM Task WHERE taskId = @TaskID"
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@TaskID", taskID)
+
+            command.ExecuteNonQuery()
+
+            MessageBox.Show("Task successfully deleted")
+            LoadDataGrid()
+        Catch ex As Exception
+            MessageBox.Show("Error deleting task: " & ex.Message)
+        Finally
+            connection.Close()
+        End Try
 
     End Sub
 End Class

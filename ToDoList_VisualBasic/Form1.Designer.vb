@@ -31,7 +31,6 @@ Partial Class Form1
         Me.btnAddTask = New System.Windows.Forms.Button()
         Me.btnEditTask = New System.Windows.Forms.Button()
         Me.btnDeleteTask = New System.Windows.Forms.Button()
-        Me.btnSaveTask = New System.Windows.Forms.Button()
         Me.radioDone = New System.Windows.Forms.RadioButton()
         Me.radioNotDone = New System.Windows.Forms.RadioButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -85,6 +84,7 @@ Partial Class Form1
         '
         'DataGridTask
         '
+        Me.DataGridTask.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridTask.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight
         Me.DataGridTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridTask.Location = New System.Drawing.Point(12, 214)
@@ -118,15 +118,6 @@ Partial Class Form1
         Me.btnDeleteTask.TabIndex = 8
         Me.btnDeleteTask.Text = "Delete"
         Me.btnDeleteTask.UseVisualStyleBackColor = True
-        '
-        'btnSaveTask
-        '
-        Me.btnSaveTask.Location = New System.Drawing.Point(594, 168)
-        Me.btnSaveTask.Name = "btnSaveTask"
-        Me.btnSaveTask.Size = New System.Drawing.Size(187, 40)
-        Me.btnSaveTask.TabIndex = 9
-        Me.btnSaveTask.Text = "Save"
-        Me.btnSaveTask.UseVisualStyleBackColor = True
         '
         'radioDone
         '
@@ -167,7 +158,6 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.AppWorkspace
         Me.ClientSize = New System.Drawing.Size(800, 524)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.btnSaveTask)
         Me.Controls.Add(Me.btnDeleteTask)
         Me.Controls.Add(Me.btnEditTask)
         Me.Controls.Add(Me.btnAddTask)
@@ -196,7 +186,6 @@ Partial Class Form1
     Friend WithEvents btnAddTask As Button
     Friend WithEvents btnEditTask As Button
     Friend WithEvents btnDeleteTask As Button
-    Friend WithEvents btnSaveTask As Button
     Friend WithEvents radioDone As RadioButton
     Friend WithEvents radioNotDone As RadioButton
     Friend WithEvents GroupBox1 As GroupBox
