@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Threading
 
 Public Class Form1
 
@@ -52,5 +53,46 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDataGrid()
+    End Sub
+
+    Private Sub btnEditTask_Click(sender As Object, e As EventArgs) Handles btnEditTask.Click
+        Dim taskTitle As String = txtTitle.Text
+        Dim taskDescription As String = txtDescription.Text
+        Dim taskStatus As Boolean
+        Dim taskID As Integer
+
+        taskStatus = radioDone.Checked ' Utiliza el valor Checked del RadioButton para el estado
+
+        ' Obtener el ID de la fila seleccionada en el DataGridView
+        If DataGridTask.SelectedRows.Count > 0 Then
+            taskID = Convert.ToInt32(DataGridTask.SelectedRows(0).Cells("taskId").Value)
+        Else
+            MessageBox.Show("Please select a task to edit.")
+            Return
+        End If
+
+        Try
+            connection.Open()
+
+            Dim query As String = "UPDATE Task SET Title = @Title, Description = @Description, Status = @Status WHERE taskId = @TaskID"
+            Dim command As New SqlCommand(query, connection)
+            command.Parameters.AddWithValue("@Title", taskTitle)
+            command.Parameters.AddWithValue("@Description", taskDescription)
+            command.Parameters.AddWithValue("@Status", taskStatus)
+            command.Parameters.AddWithValue("@TaskID", taskID)
+
+            command.ExecuteNonQuery()
+
+            MessageBox.Show("Task successfully updated")
+            LoadDataGrid()
+        Catch ex As Exception
+            MessageBox.Show("Error updating task: " & ex.Message)
+        Finally
+            connection.Close()
+        End Try
+    End Sub
+
+    Private Sub btnDeleteTask_Click(sender As Object, e As EventArgs) Handles btnDeleteTask.Click
+
     End Sub
 End Class
